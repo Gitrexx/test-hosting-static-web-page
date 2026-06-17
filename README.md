@@ -15,18 +15,30 @@ content/YYYY-MM-DD.md   # one file per day
 
 ## Adding a new day
 
-This is the part you wanted to confirm works:
+You only need to add the markdown file:
 
 1. Create `content/YYYY-MM-DD.md` with that day's content.
-2. Add one line to `content/manifest.json`, e.g.:
-   ```json
-   { "date": "2026-06-19", "file": "2026-06-19.md", "title": "Day three" }
-   ```
-3. Commit and push.
+2. Commit and push to `main`.
 
-A new tab appears for that date, and since it's the newest it becomes the
-default tab on the landing page. (App.js sorts by date, so the line's
-position in the file doesn't matter.)
+That's it. The GitHub Actions workflow (`.github/workflows/build-manifest.yml`)
+runs `scripts/build_manifest.py`, which rebuilds `content/manifest.json` from
+the `content/*.md` files and commits it back. A new tab then appears for that
+date, and since it's the newest it becomes the default tab.
+
+- `date`  = the filename (without `.md`), so name files `YYYY-MM-DD.md`
+- `title` = the first `# heading` in the file (falls back to the date)
+
+### Regenerating the manifest by hand
+
+The workflow does this automatically, but you can also run it locally:
+
+```bash
+python3 scripts/build_manifest.py
+```
+
+> First-run note: GitHub Actions needs write permission to commit the manifest
+> back. Repo **Settings → Actions → General → Workflow permissions** → select
+> **Read and write permissions**.
 
 ## Hosting on GitHub Pages
 

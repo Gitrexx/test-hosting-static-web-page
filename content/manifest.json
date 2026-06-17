@@ -1,4 +1,17 @@
 [
-  { "date": "2026-06-18", "file": "2026-06-18.md", "title": "Day two" },
-  { "date": "2026-06-17", "file": "2026-06-17.md", "title": "First post" }
+  {
+    "date": "2026-06-19",
+    "file": "2026-06-19.md",
+    "title": "June 19, 2026 — Day three"
+  },
+  {
+    "date": "2026-06-18",
+    "file": "2026-06-18.md",
+    "title": "June 18, 2026 — Day two"
+  },
+  {
+    "date": "2026-06-17",
+    "file": "2026-06-17.md",
+    "title": "June 17, 2026 — First post"
+  }
 ]
