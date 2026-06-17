@@ -1,0 +1,91 @@
+:root {
+  --bg: #0f1117;
+  --panel: #171a23;
+  --border: #2a2f3a;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #4f8cff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.site-header {
+  padding: 2rem 1.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.site-header h1 { margin: 0; font-size: 1.8rem; }
+.subtitle { margin: 0.25rem 0 0; color: var(--muted); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tab {
+  text-align: left;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tab:hover { border-color: var(--accent); }
+.tab.active {
+  border-color: var(--accent);
+  background: rgba(79, 140, 255, 0.12);
+  font-weight: 600;
+}
+.tab .tab-title { display: block; color: var(--muted); font-size: 0.8rem; }
+
+.content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  min-height: 300px;
+}
+.content h1, .content h2 { margin-top: 0.5rem; }
+.content .loading, .content .error { color: var(--muted); }
+.content .error { color: #ff6b6b; }
+.content pre {
+  background: #0b0d12;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.content code { background: #0b0d12; padding: 0.1rem 0.3rem; border-radius: 4px; }
+.content pre code { padding: 0; }
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 680px) {
+  .layout { grid-template-columns: 1fr; }
+  .tabs { flex-direction: row; flex-wrap: wrap; }
+}
